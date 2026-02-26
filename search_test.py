@@ -11,7 +11,7 @@ CSV_PATH = os.path.join(os.path.dirname(__file__), "embeddings.csv")
 def search(query, top_k=5):
     print("Search asked")
     load_dotenv()
-    client = Mistral(api_key=os.getenv("MISTRAl_API_KEY"))
+    client = Mistral(api_key=os.getenv("MISTRAL_API_KEY"))
 
     # 1. Chargement du CSV (on imagine que la Lambda a inclus name et unique_id dedans)
     if not os.path.exists(CSV_PATH):
