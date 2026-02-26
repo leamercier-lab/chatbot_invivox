@@ -1,3 +1,8 @@
+altair
+pandas
 streamlit
-openai
+numpy
 mistralai
+scikit-learn
+dotenv
+mysql_connector
