@@ -37,12 +37,20 @@ else:
                 results = search(prompt)
             
             if results:
-                # On prépare un texte de réponse avec les résultats
                 response_text = "Voici les formations pertinentes que j'ai trouvées :\n\n"
                 for res in results:
+                    # Nettoyage du nom pour éviter les bugs de formatage
+                    name = str(res['name']).strip()
                     unique_id = res.get('unique_id', '')
+                    score = res['score']
                     url = f"https://invivox.com/fr/training/detail/{unique_id}"
-                    response_text += f"- **{res['name']}** (Score: {res['score']}%)\n  [Voir la formation]({url})\n\n"
+                    
+                    # Construction d'une ligne propre
+                    # Le \n assure que chaque élément est bien traité comme un nouveau point de liste
+                    response_text += f"### {name}\n" # Titre en plus gros
+                    response_text += f"🎯 **Score : {score}%** \n" # Deux espaces à la fin pour le saut de ligne
+                    response_text += f"🔗 [Consulter le programme]({url})\n\n"
+                    response_text += "---\n" # Une petite ligne de séparation
             else:
                 response_text = "Désolé, je n'ai pas trouvé de formation correspondant à votre recherche."
 
