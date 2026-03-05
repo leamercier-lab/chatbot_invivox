@@ -23,7 +23,7 @@ else:
             st.markdown(message["content"])
 
     # Champ de saisie
-    if prompt := st.chat_input("Ex: Chirurgie du genou LCA"):
+    if prompt := st.chat_input("Ex: Chirurgie du genou"):
 
         # 1. Affichage du message utilisateur
         st.session_state.messages.append({"role": "user", "content": prompt})
