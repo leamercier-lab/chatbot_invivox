@@ -1,7 +1,7 @@
-pandas
 streamlit>=1.35.0
+mistralai==1.0.0
+pandas
 numpy
-mistralai
 scikit-learn
 python-dotenv
 mysql-connector-python
