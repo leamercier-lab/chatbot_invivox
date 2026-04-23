@@ -1,5 +1,7 @@
 import streamlit as st
 from mistralai import Mistral # On utilise le SDK Mistral
+
+from logs import log_to_github
 from search_test import search
 
 st.title("🩺 Assistant Invivox")
@@ -35,7 +37,7 @@ else:
             # --- ÉTAPE RECHERCHE ---
             with st.spinner("Recherche dans le catalogue..."):
                 results = search(prompt)
-            
+                log_to_github(prompt, results)
             if results:
                 response_text = "Voici les formations pertinentes que j'ai trouvées :\n\n"
                 for res in results:
