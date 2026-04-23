@@ -15,7 +15,7 @@ def log_to_github(question, results):
         # On extrait les unique_id de chaque dictionnaire 'res' dans la liste 'results'
         # On les sépare par un "|" pour ne pas casser le format CSV
         liste_ids = [str(res.get('unique_id', 'id_inconnu')) for res in results]
-        ids_string = "|".join(liste_ids)
+        ids_string = ", ".join(liste_ids)
         # -------------------------------
 
         new_log = {
